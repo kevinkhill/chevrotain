@@ -1,6 +1,6 @@
 {
   "name": "@chevrotain/utils",
-  "version": "10.0.0",
+  "version": "10.1.2",
   "description": "common utilities",
   "keywords": [],
   "bugs": {
@@ -13,6 +13,7 @@
   "typings": "lib/src/api.d.ts",
   "main": "lib/src/api.js",
   "files": [
+    "src/**/*.ts",
     "lib/src/**/*.js",
     "lib/src/**/*.d.ts",
     "lib/src/**/*.js.map",

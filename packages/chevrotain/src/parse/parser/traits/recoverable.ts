@@ -1,4 +1,8 @@
-import { createTokenInstance, EOF } from "../../../scan/tokens_public"
+import {
+  createTokenInstance,
+  EOF,
+  tokenMatcher
+} from "../../../scan/tokens_public"
 import {
   AbstractNextTerminalAfterProductionWalker,
   IFirstAfterRepetition
@@ -78,7 +82,11 @@ export class Recoverable {
     return tokToInsert
   }
 
-  public canTokenTypeBeInsertedInRecovery(tokType: TokenType) {
+  public canTokenTypeBeInsertedInRecovery(tokType: TokenType): boolean {
+    return true
+  }
+
+  public canTokenTypeBeDeletedInRecovery(tokType: TokenType): boolean {
     return true
   }
 
@@ -249,6 +257,10 @@ export class Recoverable {
     this: MixedInParser,
     expectedTokType: TokenType
   ): boolean {
+    if (!this.canTokenTypeBeDeletedInRecovery(expectedTokType)) {
+      return false
+    }
+
     const isNextTokenWhatIsExpected = this.tokenMatcher(
       this.LA(2),
       expectedTokType
@@ -271,9 +283,12 @@ export class Recoverable {
     let nextToken = this.LA(1)
     let k = 2
     while (true) {
-      const nextTokenType: any = nextToken.tokenType
-      if (includes(allPossibleReSyncTokTypes, nextTokenType)) {
-        return nextTokenType
+      const foundMatch = find(allPossibleReSyncTokTypes, (resyncTokType) => {
+        const canMatch = tokenMatcher(nextToken, resyncTokType)
+        return canMatch
+      })
+      if (foundMatch !== undefined) {
+        return foundMatch
       }
       nextToken = this.LA(k)
       k++

@@ -29,7 +29,7 @@
  */
 
 import { EmbeddedActionsParser } from "../../../../src/parse/parser/traits/parser_traits"
-import * as allTokens from "./Switchcase_recovery_tokens"
+import * as allTokens from "./switchcase_recovery_tokens"
 import {
   CaseTok,
   ColonTok,
@@ -43,7 +43,7 @@ import {
   SemiColonTok,
   StringTok,
   SwitchTok
-} from "./Switchcase_recovery_tokens"
+} from "./switchcase_recovery_tokens"
 import assign from "lodash/assign"
 import includes from "lodash/includes"
 import { IToken, TokenType } from "@chevrotain/types"
@@ -87,6 +87,15 @@ export class SwitchCaseRecoveryParser extends EmbeddedActionsParser {
       this.tokTypesThatCannotBeInsertedInRecovery,
       tokType as unknown
     )
+  }
+
+  // a property with which the single token deletion recovery can be explicitly disabled for testing purposes
+  public singleTokenDeletionEnabled = true
+
+  // DOCS: overriding this method allows us to customize the logic for which tokens may not be automatically deleted
+  // during error recovery.
+  public canTokenTypeBeDeletedInRecovery(tokType: TokenType) {
+    return this.singleTokenDeletionEnabled
   }
 
   public parseSwitchStmt(): RetType {

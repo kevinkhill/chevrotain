@@ -1,6 +1,6 @@
 {
   "name": "@chevrotain/gast",
-  "version": "10.0.0",
+  "version": "10.1.2",
   "description": "Grammar AST structure for Chevrotain Parsers",
   "keywords": [],
   "bugs": {
@@ -10,10 +10,11 @@
   "typings": "lib/src/api.d.ts",
   "main": "lib/src/api.js",
   "files": [
-    "api.d.ts",
+    "src/**/*.ts",
     "lib/src/**/*.js",
+    "lib/src/**/*.d.ts",
     "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts"
+    "api.d.ts"
   ],
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
     "coverage": "nyc mocha"
   },
   "dependencies": {
-    "@chevrotain/types": "^10.0.0",
+    "@chevrotain/types": "^10.1.2",
     "lodash": "4.17.21"
   },
   "publishConfig": {

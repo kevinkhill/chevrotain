@@ -1,3 +1,42 @@
+## 10.1.2 (3-6-2022)
+
+#### Bug Fixes
+
+- [missing \*.ts source referenced by source maps in sub-packages](https://github.com/Chevrotain/chevrotain/issues/1773)
+
+#### Documentation
+
+- [docs(api.d.ts): add generics for getBaseCstVisitorConstructor functions](https://github.com/Chevrotain/chevrotain/pull/1774)
+  - Thanks to [@jackhenry](https://github.com/jackhenry) :thumbsup:
+
+## 10.1.1 (2-15-2022)
+
+Patch release as a workaround for release process issues...
+
+## 10.1.0 (2-15-2022)
+
+#### Minor Changes
+
+- [customizing automatic token deletion recovery by exposing `canRecoverWithSingleTokenDeletion` API](https://github.com/Chevrotain/chevrotain/issues/1753)
+  - Thanks to [@medihack](https://github.com/medihack) :thumbsup:
+
+#### Bug Fixes
+
+- [Wrong CST d.ts type generation with same label for different alternatives](https://github.com/Chevrotain/chevrotain/issues/1745)
+
+  - Thanks to [@medihack](https://github.com/medihack) :thumbsup:
+
+- [Recovery Re-Sync logic ignores Token Categories](https://github.com/Chevrotain/chevrotain/issues/1055)
+  - Thanks to [@medihack](https://github.com/medihack) :thumbsup:
+
+#### Documentation
+
+- [various fixes to broken links in docs](https://github.com/Chevrotain/chevrotain/commits?author=kevinkhill&since=2022-01-24&until=2022-01-24)
+  - Thanks to [@kevinkhill](https://github.com/kevinkhill) :thumbsup:
+- [Update the "where used" list ](https://github.com/Chevrotain/chevrotain/issues/1711)
+- [additional description on token location attributes](https://github.com/Chevrotain/chevrotain/pull/1762)
+  - Thanks to [@NaridaL](https://github.com/NaridaL) :thumbsup:
+
 ## 10.0.0 (1-17-2022)
 
 #### Breaking Changes
